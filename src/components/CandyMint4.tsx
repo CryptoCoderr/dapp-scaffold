@@ -54,48 +54,29 @@ export const CandyMint: FC = () => {
       return;
     }
 
-    // Fetch the Candy Machine.
-    const candyMachine = await fetchCandyMachine(umi, candyMachineAddress);
-    // Fetch the Candy Guard.
-    const candyGuard = await safeFetchCandyGuard(
-      umi,
-      candyMachine.mintAuthority
-    );
     try {
-      // Mint from the Candy Machine.
-      const nftMint1 = generateSigner(umi);
-      const nftMint2 = generateSigner(umi);
-      const transaction = await transactionBuilder()
-        .add(setComputeUnitLimit(umi, { units: 800_000 }))
-        .add(
-          mintV2(umi, {
+      // Fetch the Candy Machine and Candy Guard.
+      const candyMachine = await fetchCandyMachine(umi, candyMachineAddress);
+      const candyGuard = await safeFetchCandyGuard(
+        umi,
+        candyMachine.mintAuthority
+      );
+
+      // Generate NFT mint signers.
+      const nftMints = [generateSigner(umi), generateSigner(umi)]; // Add more if needed
+
+      // Initialize transaction builder.
+      const transactionBuilderInstance = transactionBuilder().add(
+        setComputeUnitLimit(umi, { units: 800_000 })
+      );
+
+      // Loop through each NFT mint and add mintV2 call to transaction builder.
+      for (const nftMint of nftMints) {
+        transactionBuilderInstance.add(
+          await mintV2(umi, {
             candyMachine: candyMachine.publicKey,
             candyGuard: candyGuard?.publicKey,
-            nftMint: nftMint1,
-            collectionMint: candyMachine.collectionMint,
-            collectionUpdateAuthority: candyMachine.authority,
-            mintArgs: {
-              solPayment: some({ destination: treasury }),
-            },
-          })
-        )
-        .add(
-          mintV2(umi, {
-            candyMachine: candyMachine.publicKey,
-            candyGuard: candyGuard?.publicKey,
-            nftMint: nftMint2,
-            collectionMint: candyMachine.collectionMint,
-            collectionUpdateAuthority: candyMachine.authority,
-            mintArgs: {
-              solPayment: some({ destination: treasury }),
-            },
-          })
-        )
-        .add(
-          mintV2(umi, {
-            candyMachine: candyMachine.publicKey,
-            candyGuard: candyGuard?.publicKey,
-            nftMint: nftMint2,
+            nftMint: nftMint,
             collectionMint: candyMachine.collectionMint,
             collectionUpdateAuthority: candyMachine.authority,
             mintArgs: {
@@ -103,13 +84,21 @@ export const CandyMint: FC = () => {
             },
           })
         );
-      const { signature } = await transaction.sendAndConfirm(umi, {
-        confirm: { commitment: "confirmed" },
-      });
+      }
+
+      // Build and send transaction.
+      const { signature } = await transactionBuilderInstance.sendAndConfirm(
+        umi,
+        {
+          confirm: { commitment: "confirmed" },
+        }
+      );
+
       const txid = bs58.encode(signature);
       console.log("success", `Mint successful! ${txid}`);
       notify({ type: "success", message: "Mint successful!", txid });
 
+      // Update user balance.
       getUserSOLBalance(wallet.publicKey, connection);
     } catch (error: any) {
       notify({
