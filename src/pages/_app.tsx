@@ -9,6 +9,7 @@ import { Footer } from "../components/Footer";
 import Notifications from "../components/Notification";
 import "../ComponentsUi/Layout/MintUi/MintUi.css";
 import "../ComponentsUi/Layout/Faq/Faq.css";
+import "../ComponentsUi/Layout/Promo/Promo.css";
 import "../ComponentsUi/Layout/Footer/Footer.css";
 import "../ComponentsUi/Layout/Navigation/Navigation.css";
 import "../ComponentsUi/Idle/Idle.css";
