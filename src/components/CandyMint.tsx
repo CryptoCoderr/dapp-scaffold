@@ -39,7 +39,14 @@ export const CandyMint: FC = () => {
         .use(walletAdapterIdentity(wallet))
         .use(mplCandyMachine())
         .use(mplTokenMetadata()),
-    [wallet]
+    [
+      wallet,
+      mplCandyMachine,
+      walletAdapterIdentity,
+      mplTokenMetadata,
+      quicknodeEndpoint,
+      createUmi,
+    ]
   );
 
   // 👇 Update this onClick function
@@ -63,39 +70,14 @@ export const CandyMint: FC = () => {
     );
     try {
       // Mint from the Candy Machine.
-      const nftMint1 = generateSigner(umi);
-      const nftMint2 = generateSigner(umi);
+      const nftMint = generateSigner(umi);
       const transaction = await transactionBuilder()
         .add(setComputeUnitLimit(umi, { units: 800_000 }))
         .add(
           mintV2(umi, {
             candyMachine: candyMachine.publicKey,
             candyGuard: candyGuard?.publicKey,
-            nftMint: nftMint1,
-            collectionMint: candyMachine.collectionMint,
-            collectionUpdateAuthority: candyMachine.authority,
-            mintArgs: {
-              solPayment: some({ destination: treasury }),
-            },
-          })
-        )
-        .add(
-          mintV2(umi, {
-            candyMachine: candyMachine.publicKey,
-            candyGuard: candyGuard?.publicKey,
-            nftMint: nftMint2,
-            collectionMint: candyMachine.collectionMint,
-            collectionUpdateAuthority: candyMachine.authority,
-            mintArgs: {
-              solPayment: some({ destination: treasury }),
-            },
-          })
-        )
-        .add(
-          mintV2(umi, {
-            candyMachine: candyMachine.publicKey,
-            candyGuard: candyGuard?.publicKey,
-            nftMint: nftMint2,
+            nftMint,
             collectionMint: candyMachine.collectionMint,
             collectionUpdateAuthority: candyMachine.authority,
             mintArgs: {
@@ -119,7 +101,14 @@ export const CandyMint: FC = () => {
       });
       console.log("error", `Mint failed! ${error?.message}`);
     }
-  }, [wallet, connection, getUserSOLBalance, umi]);
+  }, [
+    wallet,
+    connection,
+    getUserSOLBalance,
+    umi,
+    candyMachineAddress,
+    treasury,
+  ]);
 
   return (
     <div className="flex flex-row justify-center">

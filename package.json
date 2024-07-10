@@ -33,6 +33,9 @@
     "next-transpile-modules": "^10.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "^6.24.1",
+    "react-scroll-parallax": "^3.4.5",
     "zustand": "^3.6.9"
   },
   "devDependencies": {

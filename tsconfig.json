@@ -17,8 +17,13 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", ".next",],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/ComponentsUi/Layout/MintUi/MintUi.js"
+  ],
+  "exclude": ["node_modules", ".next"],
   "ts-node": {
     "require": ["tsconfig-paths/register"],
     "compilerOptions": {

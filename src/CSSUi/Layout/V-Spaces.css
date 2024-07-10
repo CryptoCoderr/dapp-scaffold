@@ -1,0 +1,7 @@
+#root > *:not(.spaceless):not(.exclude):not(.texture) {
+  margin-bottom: var(--v-large);
+}
+
+#root > * > .grid-x:not(:last-child):not(.spaceless) {
+  margin-bottom: var(--v-medium);
+}

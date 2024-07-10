@@ -1,0 +1,80 @@
+[data-ico] {
+  display: block;
+  position: relative;
+  width: 28px;
+  height: 28px;
+}
+
+[data-ico]:before {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+[data-ico="tg"]:before {
+  background-image: url("../../../public/Images/tg.svg");
+}
+
+[data-ico="tw"]:before {
+  background-image: url("../../../public/Images/tw.svg");
+}
+
+[data-ico="etherscan"]:before {
+  background-image: url("../../../public/Images/etherscan.svg");
+}
+
+[data-ico="dextools"]:before {
+  background-image: url("../../../public/Images/dextools.svg");
+}
+
+[data-ico="dexscreener"]:before {
+  background-image: url("../../../public/Images/dexscreener.svg");
+}
+
+[data-ico="solscan"]:before {
+  background-image: url("../../../public/Images/solscan.svg");
+}
+
+.navicons {
+  position: relative;
+  display: block;
+  width: 87px;
+}
+
+.big .navicons {
+  width: calc(174px / 1.65);
+}
+
+.navicons:before,
+.navicons:after {
+  display: block;
+  content: "";
+}
+
+.navicons:before {
+  padding-bottom: calc(25 / (87 / 100) * 1%);
+  width: 100%;
+}
+
+.navicons:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../../public/Images/navicons.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@media (min-width: 1024px) {
+  .big .navicons {
+    width: 174px;
+  }
+}

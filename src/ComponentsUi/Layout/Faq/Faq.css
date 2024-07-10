@@ -1,0 +1,117 @@
+.highlights {
+  margin-bottom: calc(var(--v-small) * -1);
+}
+
+.highlights .highlight {
+  margin-bottom: var(--v-small);
+}
+
+.highlights .highlight section {
+  margin-left: calc(54px + var(--gutter)/2);
+}
+
+.highlights button {
+  display: flex;
+  align-items: center;
+}
+
+.highlights .circle {
+  position: relative;
+  margin-right: calc(var(--gutter)/2);
+}
+
+.highlights .highlight .circle:before {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.highlights .highlight.active .circle:before {
+  width: 64%;
+  height: 64%;
+  background-color: var(--negative);
+}
+
+.highlights .highlight:not(.active) .circle span {
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 12px 8px 0;
+  border-color: var(--primary) transparent transparent transparent;
+}
+
+.highlights .highlight.active .circle span {
+  position: absolute;
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--primary);
+}
+
+.highlights .highlight.active .circle span:before,
+.highlights .highlight.active .circle span:after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background-color: inherit;
+}
+
+.highlights .highlight.active .circle span:before {
+  transform: translateX(calc(-100% - 2px));
+}
+
+.highlights .highlight.active .circle span:after {
+  transform: translateX(calc(100% + 2px));
+}
+
+#faq .circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: all 200ms ease-in-out;
+  border: 2px solid var(--negative);
+  box-shadow: 0 0 0 0 var(--negative);
+  background: var(--grad);
+  width: 42px;
+  height: 42px;
+}
+
+#faq .circle:hover {
+  transition: all 300ms ease-in-out;
+  box-shadow: -5px 6px 0 0 var(--negative);
+  text-decoration: none;
+}
+
+@media (max-width: 1023px) {
+  #about .mtxt {
+    margin-bottom: var(--v-medium);
+  }
+}
+
+@media (min-width: 1024px) {
+  .els .shard {
+    top: -13%;
+    width: 7%;
+  }
+
+  .els .glare {
+    width: 6%;
+  }
+
+  #faq .circle {
+    border-width: 3px;
+    width: 64px;
+    height: 64px;
+  }
+}

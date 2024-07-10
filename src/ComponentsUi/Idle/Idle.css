@@ -1,0 +1,46 @@
+.idle-screen {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 999;
+}
+
+.idle-screen .overlay {
+  background: var(--grad);
+  border: 2px solid var(--negative);
+  border-radius: var(--large-radius);
+  text-align: center;
+  overflow: hidden;
+  padding: var(--btn-padding);
+  color: var(--primary);
+}
+
+.idle-screen .sl {
+  font-size: var(--h4);
+}
+
+.idle-screen .overlay img {
+  display: block;
+}
+
+.idle-screen .overlay h3 {
+  margin-bottom: 0;
+  line-height: 1;
+  color: var(--primary);
+}
+
+@media (max-width: 1024px) {
+  .idle-screen {
+    display: none!important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .idle-screen .overlay {
+    border-width: 5px;
+  }
+}

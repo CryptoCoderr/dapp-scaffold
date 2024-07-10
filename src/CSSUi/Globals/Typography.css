@@ -1,0 +1,96 @@
+@font-face {
+  font-family: 'Gill';
+  src: url('../../Fonts/Gill.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: var(--heading);
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: var(--reduced-line-height);
+}
+
+h1 small,h2 small,h3 small,h4 small,h5 small,h6 small {
+  font-size: var(--small);
+}
+
+h1 {
+  font-size: var(--h1);
+}
+
+h2 {
+  font-size: var(--h2);
+  margin-bottom: var(--v-small);
+}
+
+h3 {
+  font-size: var(--h3);
+  color: var(--primary);
+}
+
+h4 {
+  font-size: var(--h4);
+}
+
+h5 {
+  font-size: var(--h5);
+}
+
+h6 {
+  font-size: var(--h6);
+}
+
+.gradfill {
+  display: inline-flex;
+  position: relative;
+  background: #FF7BE7;
+  background: linear-gradient(to bottom, #FF7BE7 0%, #F8E731 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--negative);
+}
+
+.gradfill:after {
+  position: absolute;
+  background: none;
+  content: attr(data-text);
+  left: 0;
+  top: 0;
+  z-index: -1;
+  text-shadow: -.33px .75px 0 var(--negative);
+  -webkit-text-stroke-width: 0;
+  -webkit-text-stroke-color: transparent;
+}
+
+.lower {
+  text-transform: lowercase;
+}
+
+@media (min-width: 768px) {
+  .gradfill {
+    -webkit-text-stroke-width: 2px;
+  }
+
+  .gradfill:after {
+    text-shadow: -1px 1.5px 0 var(--negative);
+  }
+}
+
+::-moz-selection {
+  background: var(--accent);
+  color: var(--primary)
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--primary)
+}
+
+::-moz-selection {
+  background: var(--accent);
+  color: var(--primary)
+}

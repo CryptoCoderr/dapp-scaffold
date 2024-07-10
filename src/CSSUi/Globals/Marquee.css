@@ -1,0 +1,61 @@
+.marquee {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  margin-top: var(--v-medium);
+  font-size: 16px;
+}
+
+.marquee.mutated {
+  font-size: var(--h2);
+}
+
+.marquee.bordered {
+  font-family: var(--heading);
+  background: linear-gradient(#3a055a, #3a055a) 50% 50%/calc(100% - 0px) calc(100% - 18px) no-repeat,
+  linear-gradient(90deg, #ff6fa2 0%, #22a1dd 50%, #6FC13C 100%);
+  padding: 12px;
+  box-sizing: border-box;
+  color: var(--primary);
+}
+.marquee.bordered p span {
+  background: #FF6FA2;
+  background: linear-gradient(to right, #FF6FA2 0%, #22A1DD 50%, #6FC13C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.marquee-el {
+  flex: 0 0 auto;
+  min-width: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  animation: scroll 100s linear 0s infinite;
+  animation-play-state: running;
+  animation-delay: 0s;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+.marquee-right .marquee-el {
+  animation-direction: normal;
+}
+.marquee-left .marquee-el {
+  animation-direction: reverse;
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media (min-width: 1024px) {
+  .marquee {
+    font-size: 21px;
+  }
+}

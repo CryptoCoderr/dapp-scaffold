@@ -1,0 +1,130 @@
+@keyframes pulse {
+  from {
+    box-shadow: 0 0 0 0 var(--accent);
+  }
+}
+
+@keyframes whitePulse {
+  from {
+    box-shadow: 0 0 0 0 var(--primary);
+  }
+}
+
+@keyframes blackPulse {
+  from {
+    box-shadow: 0 0 0 0 var(--primary);
+  }
+}
+
+@keyframes hollowPulse {
+  from {
+    box-shadow: 0 0 0 0 rgba(var(--primary-rgb),.2);
+  }
+}
+
+@keyframes hollowPulseNegative {
+  from {
+    box-shadow: 0 0 0 0 rgba(var(--negative-rgb),.2);
+  }
+}
+
+@keyframes patternbody {
+  from, to {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(2);
+  }
+}
+
+@keyframes spinner {
+  from {
+    transform: rotate(360deg) scale(6);
+  }
+  to {
+    transform: rotate(0deg) scale(6);
+  }
+}
+
+@keyframes flower {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes explosion {
+  from, to {
+    transform: translate(-50%,-50%) scale(3);
+  }
+  50% {
+    transform: translate(-50%,-50%) scale(4) rotate(360deg);
+  }
+}
+
+@media (min-width: 1024px) {
+  @keyframes spinner {
+    from {
+      transform: rotate(360deg) scale(2);
+    }
+    to {
+      transform: rotate(0deg) scale(2);
+    }
+  }
+}
+
+@keyframes pattern {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 -690px;
+  }
+}
+
+@keyframes glare {
+  0%, 15%, 85%, 100% {
+    opacity: 0;
+    transform: scale(.95);
+  }
+  25%, 75%  {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes wiggle {
+  0%, 7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(calc(-15deg/2));
+  }
+  20% {
+    transform: rotateZ(calc(10deg/2));
+  }
+  25% {
+    transform: rotateZ(calc(-10deg));
+  }
+  30% {
+    transform: rotateZ(calc(6deg));
+  }
+  35% {
+    transform: rotateZ(calc(-4deg/2));
+  }
+  40%, 100% {
+    transform: rotateZ(0);
+  }
+}
+
+@keyframes bounce {
+  70% { transform:translateY(0%); }
+  80% { transform:translateY(calc(-15%/2)); }
+  90% { transform:translateY(0%); }
+  95% { transform:translateY(calc(-7%/2)); }
+  97% { transform:translateY(0%); }
+  99% { transform:translateY(calc(-3%/2)); }
+  100% { transform:translateY(0); }
+}

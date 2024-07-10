@@ -1,0 +1,118 @@
+:root {
+  /*colors*/
+  --primary: #FEFFE2;
+  --primary-rgb: 254,255,226;
+  --grey: #c9c9c9;
+  --negative: #3A055A;
+  --negative-rgb: 58,5,90;
+  --accent: #8858B0;
+  --h-accent: #D0A1FF;
+  --semi-accent: #5251AE;
+  --yellow: #FADE41;
+  --andy-yellow: #F3C74C;
+  --red: #DD574E;
+  --pink: #FEC9D1;
+  --blue: #22A1DD;
+  --teal: #4BEAB4;
+  --green: #6FC13C;
+  --chartreusse: #B1D559;
+  --orange: #ED965C;
+  --magenta: #FF6FA2;
+
+  --link: var(--negative);
+  --h-link: #340a4b;
+
+  --grad: linear-gradient(90deg, var(--magenta) 0%, var(--blue) 50%, var(--green) 100%);
+  --h-grad: linear-gradient(90deg, var(--magenta) 0%, var(--blue) 25%, var(--green) 100%);
+
+  --alert: #E17860;
+  --border: var(--negative);
+  /*globals*/
+  --global-width: 1760px;
+  --global-p-width: 480px;
+  --global-padding: 20px;
+  --global-body-bg: #75d1ef;
+  --global-accent-bg: #ffc3f4;
+  --gutter: 10px;
+  --heading: 'Gill', sans-serif;
+  --line-height: 1;
+  --globall-line-height: 1.4;
+  --reduced-line-height: 1.2;
+  --body: 'Gill', sans-serif;
+  --h1: 15vw;
+  --h2: 7.8vw;
+  --h3: 9.3vw;
+  --h4: 26px;
+  --h5: 20px;
+  --h6: 16px;
+  --paragraph: 20px;
+  --small: 73%;
+  --rate: .85;
+  --small-radius: 4px;
+  --medium-radius: 15px;
+  --large-radius: calc(53px/2);
+  /*vertical spacing*/
+  --v-small: 20px;
+  --v-medium: 50px;
+  --v-large: calc(120px/1.5);
+  --t-spacer: 11.5vh;
+  /*buttons*/
+  --btn-huge: 21px;
+  --btn-large: 30px;
+  --btn-small: 21px;
+  --btn-tiny: 16px;
+  --btn-radius: 4px;
+  --btn-padding: calc(25px / 1.2) calc(50px / 1.2);
+  --btn-small-padding: calc(13px / 1.2) calc(25px / 1.2);
+  --btn-large-padding: calc(25px / 1.2 * 1.5) calc(50px / 1.2);
+  --btn-tiny-padding: calc(9px / 1.2) calc(14px / 1.2);
+}
+
+@media (min-width: 768px) {
+  :root {
+    /*globals*/
+    --gutter: 15px;
+    --paragraph: 21px;
+    /*vertical spacing*/
+    --v-small: 30px;
+    --v-medium: 60px;
+    --v-large: calc(120px/1.5);
+    --btn-padding: 25px 50px;
+    --btn-small-padding: 13px 25px;
+    --btn-large-padding: calc(25px *1.5) 50px;
+    --btn-tiny-padding: 9px 14px;
+  }
+}
+
+
+@media (min-width: 1024px) {
+  :root {
+    /*globals*/
+    --gutter: 30px;
+    --h1: 5.78vw;
+    --h2: 2.73vw;
+    --h3: 2.61vw;
+    --h4: 1.81vw;
+    --large-radius: 53px;
+    /*vertical spacing*/
+    --v-small: 30px;
+    --v-medium: 60px;
+    --v-large: 120px;
+    --btn-huge: 3.7vw;
+    --btn-large: calc(3.7vw/1.4);
+    --btn-small: 28px;
+  }
+}
+
+@media (min-width: 1921px) {
+  :root {
+    --h1: 111px;
+    --h2: 52px;
+    --h3: 50px;
+    --h4: 36px;
+    /*vertical spacing*/
+    --t-spacer: 200px;
+    --btn-huge: 71px;
+    --btn-large: calc(71px/1.4);
+  }
+}

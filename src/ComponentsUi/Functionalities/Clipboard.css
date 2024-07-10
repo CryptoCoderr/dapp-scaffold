@@ -1,0 +1,80 @@
+[data-ico="clipboard"] {
+  margin-left: calc(var(--gutter) / 3);
+}
+
+[data-ico="clipboard"]:before {
+  background-image: url("../../../public/Images/clipboard.svg");
+}
+
+.clipboard {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  cursor: pointer;
+}
+
+.clipboard:hover {
+  text-decoration: underline;
+}
+
+.contractCopy {
+  position: relative;
+  z-index: 2;
+  margin-top: var(--v-small);
+  font-size: 16px;
+}
+
+.btn.huge .contractCopy {
+  display: flex;
+  justify-content: center;
+  font-size: 5.4vw;
+  margin-top: 0;
+}
+
+.btn.huge .contractCopy [data-ico] {
+  width: 5.4vw;
+  height: 5.4vw;
+}
+
+.contractCopy .message {
+  position: absolute;
+  font-size: var(--btn-tiny);
+  padding: var(--btn-tiny-padding);
+  background-color: var(--accent);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: var(--btn-radius);
+  color: var(--primary);
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 768px) {
+  .clipboard .reduced {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 220px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .btn.huge .contractCopy {
+    font-size: 3.4vw;
+  }
+  .btn.huge .contractCopy [data-ico] {
+    width: 2.4vw;
+    height: 2.4vw;
+  }
+}
+
+@media (min-width: 1921px) {
+  .btn.huge .contractCopy {
+    font-size: 64px;
+  }
+  .btn.huge .contractCopy [data-ico] {
+    width: 46px;
+    height: 46px;
+  }
+}

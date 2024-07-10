@@ -1,0 +1,159 @@
+#mint {
+  display: flex;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#mint .window-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+#mint .window {
+  max-width: 600px;
+  z-index: 1;
+}
+
+#mint .window header {
+  text-align: center;
+  padding-top: calc(var(--v-small)/2);
+  padding-bottom: calc(var(--v-small)/2);
+}
+
+#mint .window header h1 {
+  font-size: var(--h2);
+}
+
+#mint .behind-ani {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+#mint .behind-ani > *:nth-child(1) {
+  top: calc(120px/1.4);
+  left: calc(50px/1.4);
+  animation: winAni8 1.5s ease-in-out infinite;
+}
+
+#mint .behind-ani > *:nth-child(2) {
+  top: calc(80px/1.4);
+  left: calc(30px/1.4);
+  animation: winAni9 1.5s ease-in-out infinite .2s;
+}
+
+@keyframes winAni8 {
+  from, to {
+    top: 0;
+    left: 0;
+  }
+  50% {
+    top: calc(120px/1.4);
+    left: calc(50px/1.4);
+  }
+}
+
+@keyframes winAni9 {
+  from, to {
+    top: 0;
+    left: 0;
+  }
+  50% {
+    top: calc(80px/1.4);
+    left: calc(30px/1.4);
+  }
+}
+
+#mint figure img {
+  display: block;
+  width: 100%;
+  border-top: 2px solid var(--negative);
+  border-bottom: 2px solid var(--negative);
+}
+
+#mint .controlls .amnt {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  justify-content: space-between;
+  margin: calc(var(--gutter)/2) var(--gutter);
+  border: 3px dashed var(--negative);
+}
+
+#mint .controlls button {
+  padding: var(--btn-small-padding);
+  font-size: 40px;
+  transition: all 200ms ease-in-out;
+}
+
+#mint .controlls button span {
+  display: block;
+  padding-right: 15px;
+  padding-left: 15px;
+  transition: all 200ms ease-in-out;
+}
+
+#mint .controlls button:hover span {
+  transition: all 300ms ease-in-out;
+  transform: scale(1.4);
+}
+
+#mint .controlls button:hover {
+  transition: all 300ms ease-in-out;
+  background: rgba(58,5,90,.1);
+}
+
+#mint .controlls button:active {
+  transition: all 300ms ease-in-out;
+  background: rgba(58,5,90,.2);
+}
+
+#mint .controlls button:active span {
+  transform: scale(1);
+}
+
+#mint .controlls .val {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  border-right: 3px dashed var(--negative);
+  border-left: 3px dashed var(--negative);
+  text-align: center;
+}
+
+#mint .legend {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-right: var(--gutter);
+  padding-left: var(--gutter);
+}
+
+#mint .legend ul:last-of-type {
+  text-align: right;
+}
+
+#mint .actions {
+  padding-top: var(--v-small);
+  padding-right: var(--gutter);
+  padding-left: var(--gutter);
+}
+
+#mint .actions .btn {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  #mint figure img {
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+  }
+}
