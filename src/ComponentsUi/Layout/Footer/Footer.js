@@ -65,7 +65,7 @@ const Footer = () => {
           </div>
 
           <div className="info">
-            <ul className="socials">
+            {/* <ul className="socials">
               <li>
                 <a
                   href="#"
@@ -116,10 +116,14 @@ const Footer = () => {
                   <i data-ico="solscan"></i>
                 </a>
               </li>
-            </ul>
+            </ul> */}
             <p className="copy">
               <span>SOLYMPICS © {currentYear}</span>{" "}
-              <a href="mailto:hi@solympics.vip" rel="nofollow" target="_blank">
+              <a
+                href="mailto:hi@solympics.vip"
+                rel="noreferrer"
+                target="_blank"
+              >
                 hi@solympics.vip
               </a>
             </p>
